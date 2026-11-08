@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Målerifirma Nymålat AB – Måleri i Bålsta sedan 2007</title>
+<meta name="description" content="Målerifirma i Bålsta med över 35 års erfarenhet. Inomhus, utomhus, tapetsering och nybyggnadsmåleri i Stockholm, Uppsala och Enköping.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   FÄRGER – vit bas, Nymålats röda som accent, logofärger som detaljer
+   ========================================================= */
+:root{
+  --bg:#FFFFFF; --bg-soft:#F6F3EE; --ink:#1E2A3A; --ink-soft:#4A5563; --line:#E5E1DA;
+  --accent:#C41E2A; --accent-hover:#A3161F;
+  --red:#C8102E; --yellow:#F2C200; --blue:#1F5FAD; --green:#2E8B57;
+  --head:'Montserrat','Segoe UI',Arial,sans-serif;
+  --body:'Inter','Segoe UI',Arial,sans-serif;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sec:96px;
+  color-scheme:light; box-sizing:border-box;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{position:relative}
+.title{font-family:var(--head);font-weight:800;font-size:clamp(30px,3.6vw,46px);letter-spacing:-.015em;line-height:1.1;margin:0 0 14px}
+.intro{color:var(--ink-soft);max-width:36em;margin:0 0 44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:15px 28px;border:2px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn-solid{background:var(--accent);color:#fff}
+.btn-solid:hover{background:var(--accent-hover)}
+.btn-ghost{border-color:#fff;color:#fff;background:transparent}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
+.btn-dark{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-dark:hover{background:var(--ink);color:#fff}
+
+/* =========================================================
+   1. HERO – stor bild, meny ovanpå, centrerad rubrik
+   ========================================================= */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;color:#fff;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;transform:scale(1.08);animation:heroZoom 9s ease-out forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(14,22,33,.56)}
+.topbar{padding-top:env(safe-area-inset-top,0px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--head);font-weight:800;font-size:23px;letter-spacing:.04em}
+.brand svg{width:30px;height:30px;flex:none}
+.nav-right{display:flex;align-items:center;gap:34px}
+.menu{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.menu a{text-decoration:none;font-family:var(--head);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.menu a:hover{color:var(--yellow)}
+.nav-phone{font-family:var(--head);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-decoration:none;color:var(--yellow)}
+.nav-cta{padding:12px 20px}
+.menu-toggle{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:8px}
+.menu-toggle svg{width:28px;height:28px}
+.hero-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 24px 110px}
+.hero h1{font-family:var(--head);font-weight:800;font-size:clamp(40px,7.4vw,104px);line-height:1;letter-spacing:.04em;text-transform:uppercase;margin:0}
+.hero .script{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(40px,5.4vw,76px);margin:14px 0 14px;line-height:1.15;color:#fff}
+/* EFFEKT: mjuk intoning i hero */
+.fade{opacity:0;transform:translateY(14px);transition:opacity 1.4s ease,transform 1.4s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.loaded .fade{opacity:1;transform:none}
+.hero .areas{font-size:clamp(15px,1.4vw,18px);color:#E3E8EF;margin:0 0 38px;letter-spacing:.02em}
+.stripe{display:flex;gap:6px;justify-content:center;margin:28px 0 0}
+.stripe span{height:5px;width:42px}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:26px;height:42px;border:2px solid rgba(255,255,255,.7);border-radius:14px}
+.scroll-hint::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;background:#fff;border-radius:2px;animation:hint 1.8s ease-in-out infinite}
+@keyframes hint{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
+
+/* =========================================================
+   EFFEKT: drop-in – element trillar ner på plats med en studs
+   ========================================================= */
+.drop{opacity:0;transform:translateY(-70px) rotate(-3deg)}
+.drop.in{opacity:1;transform:none;transition:opacity .5s ease,transform 1s cubic-bezier(.34,1.56,.64,1);transition-delay:var(--d,0s)}
+
+/* =========================================================
+   LOGO-KARUSELL – infinite logo carousel (oändlig slinga)
+   Byt platshållare: <span class="logo-ph">Beckers</span>
+   mot <img src="bilder/logo-beckers.png" alt="Beckers">
+   ========================================================= */
+.logos{border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.logo-track{display:flex;width:max-content;animation:logoScroll 32s linear infinite}
+.logo-set{display:flex;align-items:center;gap:72px;padding-right:72px;list-style:none;margin:0}
+.logo-set li{flex:none}
+.logo-set img{width:auto;max-width:none;}
+.logo-ph{display:inline-flex;align-items:center;height:46px;padding:0 18px;border:1.5px dashed var(--line);font-family:var(--head);font-weight:700;font-size:16px;color:#8A919B;white-space:nowrap}
+@keyframes logoScroll{to{transform:translateX(-50%)}}
+
+/* =========================================================
+   2. FÖRTROENDE
+   ========================================================= */
+.trust{padding:72px 0 0}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.trust-item{border-top:4px solid var(--c);padding-top:20px}
+.trust-item strong{display:block;font-family:var(--head);font-size:21px;font-weight:800;margin-bottom:4px;line-height:1.25}
+.trust-item span{color:var(--ink-soft);font-size:15px}
+
+/* =========================================================
+   3. TJÄNSTER – 3D card tilt
+   ========================================================= */
+.services{padding:var(--sec) 0}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;perspective:1100px}
+.card{background:#fff;border:1px solid var(--line);overflow:hidden;transform-style:preserve-3d;transition:transform .5s ease,box-shadow .3s ease}
+.card .pic{aspect-ratio:4/5;overflow:hidden;position:relative}
+.card .pic img{width:100%;height:100%;object-fit:cover}
+.card .pic::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--c)}
+.card .body{padding:20px 22px 24px;transform:translateZ(34px)}
+.card h3{font-family:var(--head);font-weight:700;font-size:19px;margin:0 0 6px}
+.card p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55}
+.card.tilting{box-shadow:0 28px 50px -24px rgba(30,42,58,.5)}
+
+/* =========================================================
+   4. FÖRE / EFTER – before/after slider
+   ========================================================= */
+.ba{padding:var(--sec) 0;background:var(--bg-soft)}
+.ba-grid{display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center}
+.ba-quote{font-family:var(--serif);font-style:italic;font-size:28px;line-height:1.3;color:var(--ink);margin:0 0 28px;max-width:16em}
+.flip{width:min(380px,84vw);aspect-ratio:9/16;perspective:1400px;background:none;border:0;padding:0;cursor:pointer;display:block;font:inherit;color:inherit}
+.flip-inner{display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.65,0,.35,1)}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{display:block;position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 30px 60px -30px rgba(30,42,58,.5)}
+.flip-face img{width:100%;height:100%;object-fit:cover}
+.flip-front{transform:rotateY(0deg);transition:visibility 0s .5s}
+.flip.flipped .flip-front{visibility:hidden}
+.flip-back{transform:rotateY(180deg);visibility:hidden;transition:visibility 0s .5s}
+.flip.flipped .flip-back{visibility:visible}
+.flip-face .tag{position:absolute;top:16px;left:16px;font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:rgba(14,22,33,.78);color:#fff;padding:6px 10px}
+.flip-back .tag{background:var(--accent)}
+.flip-face .hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;white-space:nowrap;background:#fff;color:var(--ink);font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.08em;padding:10px 16px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.flip-face .hint svg{width:16px;height:16px}
+.flip:focus-visible{outline:3px solid var(--yellow);outline-offset:6px}
+
+/* =========================================================
+   5. 3D-KUB – Så går det till
+   ========================================================= */
+.process{padding:var(--sec) 0}
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.scene{width:300px;height:300px;margin:40px auto;perspective:1100px;touch-action:pan-y;cursor:grab}
+.scene:active{cursor:grabbing}
+.cube{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.65,0,.35,1)}
+.face{position:absolute;inset:0;background:#fff;border:1px solid var(--line);border-top:6px solid var(--c);padding:26px;display:flex;flex-direction:column;justify-content:center;backface-visibility:hidden}
+.face .num{font-family:var(--head);font-weight:800;font-size:48px;line-height:1;color:var(--c)}
+.face h3{font-family:var(--head);font-weight:700;font-size:21px;margin:12px 0 8px}
+.face p{margin:0;font-size:15px;color:var(--ink-soft)}
+.f1{transform:rotateY(0deg) translateZ(150px)}.f2{transform:rotateY(90deg) translateZ(150px)}
+.f3{transform:rotateY(180deg) translateZ(150px)}.f4{transform:rotateY(-90deg) translateZ(150px)}
+.ftop{transform:rotateX(90deg) translateZ(150px);border-top:1px solid var(--line);align-items:center;background:var(--bg-soft)}
+.ftop svg{width:120px;height:120px}
+.cube-ctrl{display:flex;align-items:center;justify-content:center;gap:14px}
+.cube-ctrl button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.cube-ctrl button:hover{background:var(--ink);color:#fff}
+.cube-ctrl svg{width:20px;height:20px}
+.dots{display:flex;gap:9px}
+.dots span{width:9px;height:9px;transform:rotate(45deg);background:var(--line);transition:background .3s}
+.dots span.on{background:var(--ink)}
+.steps-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.steps-list button{all:unset;cursor:pointer;display:flex;gap:14px;align-items:center;padding:13px 16px;width:100%;box-sizing:border-box;font-weight:500}
+.steps-list button:hover{background:var(--bg-soft)}
+.steps-list button[aria-current="true"]{background:var(--bg-soft);box-shadow:inset 4px 0 0 var(--c)}
+.steps-list b{font-family:var(--head);color:var(--c);width:22px}
+
+/* =========================================================
+   6. GALLERI – image hover zoom
+   ========================================================= */
+.gallery{padding:0 0 var(--sec)}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:clamp(300px,34vw,460px);gap:16px}
+.gal figure{margin:0;position:relative;overflow:hidden;height:100%}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;color:#fff;font-weight:500;font-size:15px;background:linear-gradient(transparent,rgba(14,22,33,.75))}
+
+/* =========================================================
+   UTVALDA UPPDRAG – specialitet: brand-, rök- och nikotinskador
+   ========================================================= */
+.cases{padding:0 0 var(--sec)}
+.case-grid{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.phone{position:relative;width:min(320px,80vw);aspect-ratio:9/19;background:#15181d;border-radius:46px;padding:12px;box-shadow:0 40px 80px -36px rgba(30,42,58,.55),inset 0 0 0 2px #2b2f36;margin:0 auto}
+.phone::before{content:"";position:absolute;right:-3px;top:22%;width:3px;height:64px;background:#2b2f36;border-radius:0 3px 3px 0}
+.phone::after{content:"";position:absolute;left:-3px;top:18%;width:3px;height:40px;background:#2b2f36;border-radius:3px 0 0 3px;box-shadow:0 60px 0 #2b2f36}
+.screen{position:relative;width:100%;height:100%;background:#F0F2F5;border-radius:36px;overflow:hidden;display:flex;flex-direction:column;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#050505}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:92px;height:26px;background:#15181d;border-radius:20px;z-index:3}
+.statusbar{height:44px;flex:none;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;font-size:12px;font-weight:600;background:#fff}
+.statusbar .icons{display:flex;gap:5px;align-items:center}
+.statusbar .icons i{display:block;background:#050505;border-radius:2px}
+.appbar{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;background:#fff;border-bottom:1px solid #E4E6EB;font-weight:700;font-size:14px}
+.appbar svg{width:18px;height:18px;flex:none}
+.post{background:#fff;margin-top:8px;flex:none}
+.post-head{display:flex;align-items:center;gap:9px;padding:10px 12px 6px}
+.avatar{width:36px;height:36px;border-radius:50%;border:1px solid #E4E6EB;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;overflow:hidden}
+.avatar b{font-family:var(--head);font-weight:800;font-size:6.5px;letter-spacing:.02em;color:#D3121E;line-height:1;margin-top:3px}
+.avatar svg{width:13px;height:13px;margin-top:1px}
+.post-name{font-weight:700;font-size:13px;line-height:1.25}
+.post-meta{font-size:11px;color:#65676B;display:flex;align-items:center;gap:4px}
+.post-meta svg{width:10px;height:10px}
+.post-dots{margin-left:auto;color:#65676B;font-size:18px;letter-spacing:1px;line-height:1}
+.post-text{padding:2px 12px 10px;font-size:13px;line-height:1.4}
+.post-photos{display:block;width:100%}
+.post-likes{display:block;width:100%;border-top:1px solid #E4E6EB}
+.skeleton{background:#fff;margin-top:8px;flex:1;padding:12px}
+.skeleton i{display:block;background:#E4E6EB;border-radius:6px;height:9px;margin-bottom:8px}
+.case-text{max-width:30em}
+.case-text .kicker{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.case-text h3{font-family:var(--head);font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1.15;letter-spacing:-.01em;margin:0 0 18px}
+.case-text p{color:var(--ink-soft);margin:0 0 30px}
+
+/* =========================================================
+   7. OM OSS
+   ========================================================= */
+.about{padding:var(--sec) 0;background:var(--ink);color:#fff}
+.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center}
+.about-photos{position:relative;padding-bottom:70px}
+.about-photos .van{aspect-ratio:4/3;object-fit:cover;width:100%}
+.about-photos .caps{position:absolute;right:-24px;bottom:0;width:48%;aspect-ratio:4/3;object-fit:cover;border:8px solid var(--ink)}
+.about .title{color:#fff}
+.about p{color:#C9D1DC;margin:0 0 18px}
+.about .sign{font-family:var(--serif);font-style:italic;font-size:30px;color:#fff;margin:26px 0 0}
+.policy{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+.policy li{display:flex;gap:12px;align-items:baseline}
+.policy li::before{content:"";flex:none;width:8px;height:8px;background:var(--yellow);transform:rotate(45deg) translateY(-2px)}
+
+/* =========================================================
+   8. KONTAKT + karta
+   ========================================================= */
+.contact{padding:var(--sec) 0 72px}
+.contact-head{text-align:center;margin-bottom:36px}
+.contact-head .intro{margin:0 auto 26px}
+.contact-lines{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 44px;font-size:18px;margin-bottom:28px}
+.contact-lines strong{font-family:var(--head)}
+.contact-lines a{color:var(--accent);text-decoration:none;font-weight:600}
+.contact-lines a:hover{text-decoration:underline}
+.contact-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.area-map{margin-top:44px;border:1px solid var(--line);background:var(--bg-soft);overflow:hidden}
+.area-map svg{display:block;width:100%;height:auto}
+.area-map .city{font-family:var(--head);font-weight:700;font-size:30px;fill:var(--ink)}
+.area-map .home{font-family:var(--head);font-weight:800;font-size:36px;fill:var(--ink)}
+.area-map .sub{font-family:var(--body);font-size:22px;fill:var(--ink-soft)}
+.area-map .lake{font-family:var(--serif);font-style:italic;font-size:34px;fill:#5F87A6}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+.pulse.p2{animation-delay:1.2s}
+@keyframes pulse{0%{transform:scale(.4);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.map-actions{display:flex;justify-content:center;margin-top:24px}
+footer{border-top:1px solid var(--line);padding:28px 0;font-size:14px;color:var(--ink-soft)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* =========================================================
+   RESPONSIVT
+   ========================================================= */
+@media (max-width:1050px){
+  .grid4,.trust-grid{grid-template-columns:1fr 1fr}
+  .menu{gap:22px}
+  .nav-phone{display:none}
+}
+@media (max-width:900px){
+  .ba-grid,.process-grid,.about-grid,.case-grid{grid-template-columns:1fr;gap:40px}
+  .case-text{text-align:center;margin:0 auto}
+  .ba-grid > div:first-child{text-align:left}
+  .flip{margin:0 auto}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+  .gal figure{aspect-ratio:3/4;height:auto}
+  .gal figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+  .about-photos .caps{right:0}
+}
+@media (max-width:820px){
+  .menu-toggle{display:block}
+  .nav-right .nav-cta{display:none}
+  .menu{display:none;position:absolute;top:84px;left:16px;right:16px;flex-direction:column;gap:0;background:#fff;color:var(--ink);padding:10px 22px;box-shadow:0 20px 40px -20px rgba(0,0,0,.45);z-index:10}
+  .menu.open{display:flex}
+  .menu a{display:block;padding:14px 0;font-size:14px}
+  .menu a:hover{color:var(--accent)}
+}
+@media (max-width:600px){
+  :root{--sec:64px}
+  .wrap{padding:0 20px}
+  .trust{padding-top:56px}
+  .case-grid{gap:44px}
+  .intro{margin-bottom:32px}
+  .grid4{grid-template-columns:1fr 1fr;gap:14px}
+  .card .body{padding:14px 14px 16px;transform:none}
+  .card h3{font-size:15.5px}
+  .card p{font-size:13.5px}
+  .contact-btns .btn{width:100%}
+  .map-actions .btn{width:100%}
+  .area-map .city{font-size:46px}
+  .area-map .home{font-size:52px}
+  .area-map .sub{font-size:32px}
+  .area-map .lake{font-size:44px}
+  .foot{flex-direction:column;align-items:center;text-align:center}
+  .trust-grid{grid-template-columns:1fr 1fr;gap:28px 18px}
+  .trust-item strong{font-size:17px}
+  .trust-item span{font-size:14px}
+  .scene{width:240px;height:240px}
+  .f1{transform:rotateY(0deg) translateZ(120px)}.f2{transform:rotateY(90deg) translateZ(120px)}
+  .f3{transform:rotateY(180deg) translateZ(120px)}.f4{transform:rotateY(-90deg) translateZ(120px)}
+  .ftop{transform:rotateX(90deg) translateZ(120px)}
+  .face{padding:20px}.face .num{font-size:38px}.face h3{font-size:18px}
+  .hero h1{letter-spacing:.02em}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .drop,.drop.in{opacity:1;transform:none;transition:none}
+  .cube,.card,.gal img,.flip-inner,.flip-face{transition:none}
+  .hero-bg img{animation:none;transform:none}
+  .fade{opacity:1;transform:none;transition:none}
+  .logo-track{animation:none!important;flex-wrap:wrap;justify-content:center;width:100%}
+  .logo-track [aria-hidden="true"]{display:none}
+  .logo-set{flex-wrap:wrap;justify-content:center;gap:24px 44px;padding:0 20px}
+  .scroll-hint::after{animation:none}
+  .pulse{animation:none;opacity:0}
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     1. HERO
+     ========================================================= -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"><img src="bilder/tapet.jpg" alt=""></div>
+  <div class="topbar">
+    <nav class="wrap nav" aria-label="Huvudmeny">
+      <a class="brand" href="#top" aria-label="Nymålat, till toppen">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><path d="M100 20 L140 60 L100 100 L60 60 Z" fill="#C8102E"/><path d="M140 60 L180 100 L140 140 L100 100 Z" fill="#F2C200"/><path d="M100 100 L140 140 L100 180 L60 140 Z" fill="#2E8B57"/><path d="M60 60 L100 100 L60 140 L20 100 Z" fill="#1F5FAD"/></svg>NYMÅLAT
+      </a>
+      <div class="nav-right">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Öppna menyn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <ul class="menu" id="menu">
+          <li><a href="#tjanster">Tjänster</a></li>
+          <li><a href="#fore-efter">Före och efter</a></li>
+          <li><a href="#om-oss">Om oss</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <a class="nav-phone" href="tel:+46709609840">RING: 070-960 98 40</a>
+        <a class="btn btn-ghost nav-cta" href="#kontakt">Begär offert</a>
+      </div>
+    </nav>
+  </div>
+  <div class="hero-center">
+    <h1 class="fade">Vi är vad<br>vi heter</h1>
+    <p class="script fade" style="--d:.7s">Ring och det blir nymålat</p>
+    <p class="areas fade" style="--d:1.3s">Måleri och tapetsering i Stockholm, Uppsala och Enköping, sedan 2007</p>
+    <div class="fade" style="--d:1.6s"><a class="btn btn-ghost" href="#kontakt">Begär offert</a></div>
+    <div class="stripe fade" style="--d:1.9s" aria-hidden="true"><span style="background:var(--red)"></span><span style="background:var(--yellow)"></span><span style="background:var(--blue)"></span><span style="background:var(--green)"></span></div>
+  </div>
+  <span class="scroll-hint" aria-hidden="true"></span>
+</header>
+
+<main>
+<!-- =========================================================
+     LOGO-KARUSELL – färgmärken och kvalitetsstämplar
+     ========================================================= -->
+<section class="logos" aria-label="Färger och certifieringar vi arbetar med">
+  <div class="logo-track">
+    <ul class="logo-set">
+      <li><img src="bilder/logo-beckers.png" alt="Beckers" style="height:52px"></li>
+      <li><img src="bilder/logo-alcro.png" alt="Alcro" style="height:50px"></li>
+      <li><img src="bilder/logo-maleriforetagen.png" alt="Måleriföretagen i Sverige" style="height:34px"></li>
+      <li><img src="bilder/logo-nordsjo.png" alt="Nordsjö Professional" style="height:44px"></li>
+      <li><img src="bilder/logo-mastare.png" alt="Mästare – godkänd av Sveriges Hantverksråd" style="height:58px"></li>
+      <li><img src="bilder/logo-eld-vatten.png" alt="Eld &amp; Vatten" style="height:50px"></li>
+    </ul>
+    <ul class="logo-set" aria-hidden="true">
+      <li><img src="bilder/logo-beckers.png" alt="" style="height:52px"></li>
+      <li><img src="bilder/logo-alcro.png" alt="" style="height:50px"></li>
+      <li><img src="bilder/logo-maleriforetagen.png" alt="" style="height:34px"></li>
+      <li><img src="bilder/logo-nordsjo.png" alt="" style="height:44px"></li>
+      <li><img src="bilder/logo-mastare.png" alt="" style="height:58px"></li>
+      <li><img src="bilder/logo-eld-vatten.png" alt="" style="height:50px"></li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================================================
+     2. FÖRTROENDE
+     ========================================================= -->
+<section class="trust" aria-label="Därför Nymålat">
+  <div class="wrap trust-grid">
+    <div class="trust-item drop" style="--c:var(--red)"><strong>35+ år i yrket</strong><span>Erfarenhet som syns i varje detalj.</span></div>
+    <div class="trust-item drop" style="--c:var(--yellow);--d:.12s"><strong>Nöjd kund-garanti</strong><span>Vi håller den utlovade tiden.</span></div>
+    <div class="trust-item drop" style="--c:var(--blue);--d:.24s"><strong>Måleriföretagen</strong><span>Medlem i branschens egen organisation.</span></div>
+    <div class="trust-item drop" style="--c:var(--green);--d:.36s"><strong>Små som stora jobb</strong><span>Från ett rum till hela huset.</span></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     3. TJÄNSTER – 3D card tilt
+     ========================================================= -->
+<section class="services" id="tjanster">
+  <div class="wrap">
+    <h2 class="title drop">Det här hjälper vi dig med</h2>
+    <p class="intro drop" style="--d:.1s">Inne eller ute, nytt eller gammalt. Vi tar hand om hela jobbet, från färgsättning till sista penseldraget.</p>
+    <div class="grid4">
+      <article class="card drop" style="--c:var(--blue)">
+        <div class="pic"><img src="bilder/inomhus.jpg" alt="Nymålat vardagsrum med vita väggar och takpanel" loading="lazy"></div>
+        <div class="body"><h3>Inomhus</h3><p>Väggar, tak och snickerier. Reparations- och ommålning.</p></div>
+      </article>
+      <article class="card drop" style="--c:var(--green);--d:.12s">
+        <div class="pic"><img src="bilder/utomhus.jpg" alt="Nymålad ljus träfasad på villa" loading="lazy"></div>
+        <div class="body"><h3>Utomhus</h3><p>Fasadmålning, fönstermålning och renovering.</p></div>
+      </article>
+      <article class="card drop" style="--c:var(--red);--d:.24s">
+        <div class="pic"><img src="bilder/tapetsering.jpg" alt="Målare från Nymålat sätter upp blommig tapet" loading="lazy"></div>
+        <div class="body"><h3>Tapetsering</h3><p>Från klassiska mönster till stora fototapeter.</p></div>
+      </article>
+      <article class="card drop" style="--c:#C9A100;--d:.36s">
+        <div class="pic"><img src="bilder/kok.jpg" alt="Nybyggt kök med nymålade väggar och tak" loading="lazy"></div>
+        <div class="body"><h3>Nybygge och special</h3><p>Nybyggnadsmåleri, golv, brandskyddsmålning och totalentreprenad.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4. FÖRE / EFTER – dra i reglaget
+     ========================================================= -->
+<section class="ba" id="fore-efter">
+  <div class="wrap ba-grid">
+    <div>
+      <h2 class="title drop">Före och efter</h2>
+      <p class="ba-quote drop" style="--d:.1s">En sliten port i stenvalvet, tillbaka i nyskick.</p>
+      <p class="intro drop" style="--d:.2s;margin-bottom:28px">Håll muspekaren över eller tryck på kortet för att vända det. Skrapning, lagning och flera lager färg gav porten sin glans tillbaka – den sortens noggrannhet vi lägger på varje jobb.</p>
+      <a class="btn btn-dark drop" style="--d:.3s" href="#kontakt">Vill du ha samma lyft?</a>
+    </div>
+    <div class="drop" style="--d:.15s">
+      <button type="button" class="flip" id="flip" aria-pressed="false" aria-label="Vänd kortet för att se porten före och efter">
+        <span class="flip-inner">
+          <span class="flip-face flip-front">
+            <img src="bilder/port-fore.jpg" alt="Porten före renovering, med flagnande färg">
+            <span class="tag">Före</span>
+            <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16M3 21v-5h5"/></svg>Vänd och se efter</span>
+          </span>
+          <span class="flip-face flip-back">
+            <img src="bilder/port-efter.jpg" alt="Porten efter renovering, nymålad i ljust gult">
+            <span class="tag">Efter</span>
+            <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16M3 21v-5h5"/></svg>Vänd tillbaka</span>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5. 3D-KUB – Så går det till
+     ========================================================= -->
+<section class="process" id="sa-gar-det-till">
+  <div class="wrap process-grid">
+    <div>
+      <h2 class="title drop">Så går det till</h2>
+      <p class="intro drop" style="--d:.1s;margin-bottom:26px">Fyra steg från första samtalet till ett färdigt resultat. Snurra kuben eller välj ett steg.</p>
+      <ol class="steps-list" id="steps">
+        <li><button data-i="0" style="--c:var(--red)"><b>1</b>Du hör av dig</button></li>
+        <li><button data-i="1" style="--c:#9A7B00"><b>2</b>Vi kommer på besök</button></li>
+        <li><button data-i="2" style="--c:var(--blue)"><b>3</b>Du får en tydlig offert</button></li>
+        <li><button data-i="3" style="--c:var(--green)"><b>4</b>Vi målar – du njuter</button></li>
+      </ol>
+    </div>
+    <div>
+      <div class="scene" id="scene">
+        <div class="cube" id="cube">
+          <div class="face f1" style="--c:var(--red)"><span class="num">1</span><h3>Du hör av dig</h3><p>Ring eller maila och berätta vad du vill göra. Inne eller ute, nytt eller gammalt.</p></div>
+          <div class="face f2" style="--c:#9A7B00"><span class="num">2</span><h3>Vi kommer på besök</h3><p>Vi tittar på ytorna, pratar färg och hör vad som är viktigt för dig.</p></div>
+          <div class="face f3" style="--c:var(--blue)"><span class="num">3</span><h3>Du får en tydlig offert</h3><p>Pris, tidsplan och vad som ingår – svart på vitt, utan överraskningar.</p></div>
+          <div class="face f4" style="--c:var(--green)"><span class="num">4</span><h3>Vi målar – du njuter</h3><p>Noggrant arbete, städat efteråt och klart den dag vi lovat.</p></div>
+          <div class="face ftop"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M100 20 L140 60 L100 100 L60 60 Z" fill="#C8102E"/><path d="M140 60 L180 100 L140 140 L100 100 Z" fill="#F2C200"/><path d="M100 100 L140 140 L100 180 L60 140 Z" fill="#2E8B57"/><path d="M60 60 L100 100 L60 140 L20 100 Z" fill="#1F5FAD"/></svg></div>
+        </div>
+      </div>
+      <div class="cube-ctrl">
+        <button id="prev" aria-label="Föregående steg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <div class="dots" id="dots"><span class="on"></span><span></span><span></span><span></span></div>
+        <button id="next" aria-label="Nästa steg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6. GALLERI
+     ========================================================= -->
+<section class="gallery" aria-labelledby="gal-title">
+  <div class="wrap">
+    <h2 class="title drop" id="gal-title">Fler av våra jobb</h2>
+    <p class="intro drop" style="--d:.1s">Två nymålade fasader och ett tak i en tvättstuga – några exempel från de senaste säsongerna.</p>
+    <div class="gal">
+      <figure class="drop"><img src="bilder/utomhus.jpg" alt="Nymålad ljus träfasad på villa med trädäck" loading="lazy"><figcaption>Nymålad fasad, villa</figcaption></figure>
+      <figure class="drop" style="--d:.12s"><img src="bilder/fasad.jpg" alt="Nymålad gråbeige träfasad med altan" loading="lazy"><figcaption>Fasadmålning, villa</figcaption></figure>
+      <figure class="drop" style="--d:.24s"><img src="bilder/tak.jpg" alt="Nymålat vitt tak i kaklad tvättstuga" loading="lazy" style="object-position:50% 20%"><figcaption>Tak i tvättstuga</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     UTVALDA UPPDRAG – brand-, rök- och nikotinskador
+     ========================================================= -->
+<section class="cases" id="uppdrag">
+  <div class="wrap">
+    <h2 class="title drop">Utvalda uppdrag</h2>
+    <div class="case-grid">
+      <div class="phone drop" role="img" aria-label="Facebook-inlägg från Målerifirma Nymålat AB med bilder från helmålning av en miljöstuga efter brand">
+        <div class="screen">
+          <span class="island"></span>
+          <div class="statusbar"><span>9:41</span><span class="icons"><i style="width:16px;height:9px"></i><i style="width:13px;height:9px;border-radius:50% 50% 2px 2px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+          <div class="appbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>Målerifirma Nymålat AB</div>
+          <div class="post">
+            <div class="post-head">
+              <span class="avatar"><b>NYMÅLAT</b><svg viewBox="0 0 200 200"><path d="M100 20 L140 60 L100 100 L60 60 Z" fill="#C8102E"/><path d="M140 60 L180 100 L140 140 L100 100 Z" fill="#F2C200"/><path d="M100 100 L140 140 L100 180 L60 140 Z" fill="#2E8B57"/><path d="M60 60 L100 100 L60 140 L20 100 Z" fill="#1F5FAD"/></svg></span>
+              <div><div class="post-name">Målerifirma Nymålat AB</div><div class="post-meta">29 oktober · <svg viewBox="0 0 16 16" fill="none" stroke="#65676B" stroke-width="1.6"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2 2 11 0 13M8 1.5c-2 2-2 11 0 13"/></svg></div></div>
+              <span class="post-dots">···</span>
+            </div>
+            <p class="post-text">Helmålning av en miljöstuga i Hagalund efter en brand.</p>
+            <img class="post-photos" src="bilder/fb-fotos.jpg" alt="">
+            <img class="post-likes" src="bilder/fb-likes.jpg" alt="">
+          </div>
+          <div class="skeleton" aria-hidden="true"><i style="width:45%"></i><i style="width:30%;height:7px"></i><i style="width:90%;margin-top:14px"></i><i style="width:70%"></i></div>
+        </div>
+      </div>
+      <div class="case-text">
+        <p class="kicker drop">Efter brand</p>
+        <h3 class="drop" style="--d:.1s">Från brandskada till nymålat</h3>
+        <p class="drop" style="--d:.2s">Uppdrag åt ett bostadsbolag i Solna: en miljöstuga som skadats av brand skulle återställas helt. Målning efter brand-, rök- och sotskador är en specialitet – det kräver rätt sanering, spärrgrundning och noggrann samordning på plats.</p>
+        <a class="btn btn-dark drop" style="--d:.3s" href="https://www.facebook.com/reel/1978205506193157" target="_blank" rel="noopener">Följ oss på Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7. OM OSS
+     ========================================================= -->
+<section class="about" id="om-oss">
+  <div class="wrap about-grid">
+    <div class="about-photos drop">
+      <img class="van" src="bilder/bil.jpg" alt="Nymålats vita servicebil med röd logotyp" loading="lazy">
+      <img class="caps" src="bilder/kepsar.jpg" alt="Tre kepsar med Nymålats logotyp" loading="lazy">
+    </div>
+    <div>
+      <h2 class="title drop">Ett namn vi bär med stolthet</h2>
+      <p class="drop" style="--d:.1s">Nymålat finns i Bålsta och tar med glädje emot uppdrag i hela Stockholm, Uppsala och Enköpings område. Vi är specialister på de lite mindre jobben, men har ett brett kontaktnät med resurser även för större projekt.</p>
+      <p class="drop" style="--d:.15s">Med över 35 års erfarenhet i branschen sätter vi alltid kunden i centrum. Vår policy är att alltid:</p>
+      <ul class="policy drop" style="--d:.2s">
+        <li>ge högsta kvalitet på service</li>
+        <li>hålla den utlovade tiden på arbetet</li>
+        <li>leverera kvalitetsarbete till ett bra pris</li>
+      </ul>
+      <p class="sign drop" style="--d:.3s">Michael Eriksson med personal</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     8. KONTAKT + karta
+     ========================================================= -->
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="contact-head">
+      <h2 class="title drop">Ska ni måla om?</h2>
+      <p class="intro drop" style="--d:.1s">Inne eller ute, nytt eller gammalt. Ring oss eller kom förbi på Industrivägen 13 i Bålsta, så tar vi fram ett prisförslag.</p>
+      <div class="contact-lines drop" style="--d:.2s">
+        <span><strong>Telefon:</strong> <a href="tel:+46709609840">070-960 98 40</a></span>
+        <span><strong>Adress:</strong> Industrivägen 13, 746 40 Bålsta</span>
+      </div>
+      <div class="contact-btns drop" style="--d:.3s">
+        <a class="btn btn-solid" href="tel:+46709609840">Ring för offert</a>
+        <a class="btn btn-dark" href="https://www.facebook.com/reel/1978205506193157" target="_blank" rel="noopener">Se oss i arbete på Facebook</a>
+      </div>
+    </div>
+    <figure class="area-map drop" style="--d:.2s;margin-left:0;margin-right:0" role="img" aria-label="Karta över verksamhetsområdet: Nymålat i Bålsta, med uppdrag i Stockholm, Uppsala och Enköping">
+      <svg viewBox="0 0 1000 640" aria-hidden="true">
+        <rect width="1000" height="640" fill="#F6F3EE"/>
+        <path d="M0 470 C70 450 120 480 190 462 C250 446 300 470 360 452 C400 440 430 425 470 432 C500 437 520 455 560 452 C610 448 640 470 690 478 C740 486 770 510 820 520 C860 528 890 546 930 548 L1000 552 L1000 640 L0 640 Z" fill="#D6E5EF"/>
+        <path d="M520 455 C540 420 575 412 600 430 C590 448 560 456 520 455 Z" fill="#D6E5EF"/>
+        <path d="M250 470 C270 500 330 510 360 495 C330 488 290 482 250 470 Z" fill="#F6F3EE"/>
+        <path d="M650 490 C680 520 720 525 760 515 C720 505 690 498 650 490 Z" fill="#F6F3EE"/>
+        <text class="lake" x="300" y="580">Mälaren</text>
+        <g fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round">
+          <path d="M150 300 C260 330 380 350 480 372 C620 400 760 440 880 500"/>
+          <path d="M480 372 C500 280 530 180 560 90"/>
+        </g>
+        <g fill="none" stroke="#B8BFC8" stroke-width="2.5" stroke-dasharray="2 12" stroke-linecap="round">
+          <path d="M480 372 C380 350 260 330 150 300"/>
+          <path d="M480 372 C620 400 760 440 880 500"/>
+          <path d="M480 372 C500 280 530 180 560 90"/>
+        </g>
+        <g>
+          <circle cx="560" cy="88" r="11" fill="#1E2A3A"/>
+          <text class="city" x="586" y="98">Uppsala</text>
+          <circle cx="150" cy="300" r="11" fill="#1E2A3A"/>
+          <text class="city" x="150" y="262" text-anchor="middle">Enköping</text>
+          <circle cx="880" cy="500" r="11" fill="#1E2A3A"/>
+          <text class="city" x="880" y="462" text-anchor="end">Stockholm</text>
+        </g>
+        <circle class="pulse" cx="480" cy="372" r="26" fill="#C41E2A"/>
+        <circle class="pulse p2" cx="480" cy="372" r="26" fill="#C41E2A"/>
+        <g transform="translate(480 372)">
+          <path d="M0 0 C-16 -22 -30 -36 -30 -56 A30 30 0 1 1 30 -56 C30 -36 16 -22 0 0 Z" fill="#C41E2A"/>
+          <circle cx="0" cy="-56" r="12" fill="#fff"/>
+        </g>
+        <text class="home" x="528" y="330">Nymålat</text>
+        <text class="sub" x="528" y="362">Industrivägen 13, Bålsta</text>
+      </svg>
+    </figure>
+    <div class="map-actions drop" style="--d:.3s"><a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=Industriv%C3%A4gen+13+746+40+B%C3%A5lsta" target="_blank" rel="noopener">Öppna i Google Maps</a></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap foot"><span>© <span id="year"></span> Målerifirma Nymålat AB</span><span>Industrivägen 13, 746 40 Bålsta – 070-960 98 40</span></div></footer>
+
+<script>
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* Hero tonar fram mjukt när sidan laddats */
+requestAnimationFrame(function(){requestAnimationFrame(function(){document.body.classList.add('loaded');});});
+
+/* Mobilmeny */
+(function(){
+  var b=document.querySelector('.menu-toggle'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Stäng menyn':'Öppna menyn');});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded','false');}});
+})();
+
+/* Drop-in när element kommer in i bild */
+(function(){
+  var els=document.querySelectorAll('.drop');
+  if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+
+/* 3D card tilt (bara med mus) */
+(function(){
+  if(reduce||!window.matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      c.classList.add('tilting');c.style.transition='transform .08s linear,box-shadow .3s ease';
+      c.style.transform='rotateY('+(x*12)+'deg) rotateX('+(-y*12)+'deg) translateY(-6px)';
+    });
+    c.addEventListener('pointerleave',function(){c.classList.remove('tilting');c.style.transition='transform .5s ease,box-shadow .3s ease';c.style.transform='';});
+  });
+})();
+
+/* 3D card flip: hover med mus, klick/tryck överallt */
+(function(){
+  var f=document.getElementById('flip');
+  function set(on){f.classList.toggle('flipped',on);f.setAttribute('aria-pressed',on);}
+  f.addEventListener('click',function(){set(!f.classList.contains('flipped'));});
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    f.addEventListener('mouseenter',function(){set(true);});
+    f.addEventListener('mouseleave',function(){set(false);});
+  }
+})();
+
+/* 3D-kub */
+(function(){
+  var cube=document.getElementById('cube'),scene=document.getElementById('scene');
+  var dots=document.querySelectorAll('#dots span'),steps=document.querySelectorAll('#steps button');
+  var angle=0,tilt=-14,idx=0;
+  function render(){
+    cube.style.transform='rotateX('+tilt+'deg) rotateY('+angle+'deg)';
+    idx=((Math.round(-angle/90)%4)+4)%4;
+    dots.forEach(function(d,i){d.classList.toggle('on',i===idx)});
+    steps.forEach(function(s,i){s.setAttribute('aria-current',i===idx?'true':'false')});
+  }
+  function go(i){var d=((i-idx)%4+4)%4;if(d===3)d=-1;angle-=d*90;render();}
+  document.getElementById('next').addEventListener('click',function(){angle-=90;render();});
+  document.getElementById('prev').addEventListener('click',function(){angle+=90;render();});
+  steps.forEach(function(s){s.addEventListener('click',function(){go(+s.dataset.i)})});
+  var sx=null,sa=0;
+  scene.addEventListener('pointerdown',function(e){sx=e.clientX;sa=angle;cube.style.transition='none';scene.setPointerCapture(e.pointerId);});
+  scene.addEventListener('pointermove',function(e){if(sx===null)return;angle=sa+(e.clientX-sx)*.5;cube.style.transform='rotateX('+tilt+'deg) rotateY('+angle+'deg)';});
+  function end(){if(sx===null)return;sx=null;cube.style.transition='';angle=Math.round(angle/90)*90;render();}
+  scene.addEventListener('pointerup',end);scene.addEventListener('pointercancel',end);
+  render();
+})();
+
+</script>
+</body>
+</html>
